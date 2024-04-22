@@ -26,7 +26,7 @@ function showCarDetails(car) {
   paraYear.textContent = `Year: ${car.year}`;
 
   removeBtn.disabled = false; //to disable a button you set it to true
-  removeBtn.setAttribute("data-carId", car.id);
+  removeBtn.setAttribute("data-carId", car.id); // "call" setAttributes
 }
 
 function updateDOMList() {
@@ -35,5 +35,28 @@ function updateDOMList() {
     // for each element in the array create a list item
     const newLi = document.createElement("li"); //use create element to make li
     li.textContent = `${car.make}, ${car.model}`; //textcontent & string interpolation  will put make/model on every list
+    li.addEventListener("click", () => showCarDetails(car));
+    // Syntax example: ele.addEventListener("click", () => func(obj))
+    ulList.appendChild(li); //append li to uL, appendChild adds node to END of the list
   });
+}
+function addCar(event) {
+  event.preventDefault();
+  //1. get the variables you need
+  const make = carMake.value; //value gets the value passed in
+  const model = carModel.value;
+  const year = carYear.value;
+  wishlist.add(make, model, year);
+  updateDOMList;
+}
+function removeCar() {
+  const carId = Number(removeBtn.getAttribute("data-carId"));
+  return carId;
+  wishlist.remove(carId); // removes carId
+  updateDOMList;
+  paraMake.textContent = ""; //edits my original variable to insert blanks
+  paraModel.textContent = "";
+  paraYear.textContent = "";
+  const removeBtn = document.querySelector(".removeBtn"); // needs to look and select the button outside the function
+  removeBtn.disabled = true;
 }
