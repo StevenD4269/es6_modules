@@ -10,8 +10,9 @@ const carYear = document.getElementById("yearInput");
 const paraMake = document.getElementById("car-make");
 const paraModel = document.getElementById("car-model");
 const paraYear = document.getElementById("car-year");
-const rmvButton = document.getElementsByClassName("btn");
-const ulList = document.getElementsByName("ul");
+const rmvButton = document.querySelector(".btn");
+const ulList = document.querySelector("ul");
+//use querySelector to get a single element
 
 const wishlist = new Wishlist();
 
@@ -41,23 +42,29 @@ function updateDOMList() {
     ulList.appendChild(newLi); //append li to uL, appendChild adds node to END of the list
   });
 }
+
+// Function to add a new car
 function addCar(event) {
-  event.preventDefault();
-  //1. get the variables you need
-  const make = carMake.value; //value gets the value passed in
-  const model = carModel.value;
-  const year = carYear.value;
-  wishlist.add(make, model, year);
-  updateDOMList;
+  event.preventDefault(); // Prevent the default form submission behavior
+  const make = carMake.value; // Get the value of the make input
+  const model = carModel.value; // Get the value of the model input
+  const year = carYear.value; // Get the value of the year input
+  wishlist.add(make, model, year); // Add the car to the wishlist
+  updateDOMList(); // Update the list in the DOM
 }
+
+// Function to remove a car
 function removeCar() {
-  const carId = Number(removeBtn.getAttribute("data-carId"));
-  return carId;
-  wishlist.remove(carId); // removes carId
-  updateDOMList;
-  paraMake.textContent = ""; //edits my original variable to insert blanks
-  paraModel.textContent = "";
-  paraYear.textContent = "";
-  const removeBtn = document.querySelector(".removeBtn"); // needs to look and select the button outside the function
-  removeBtn.disabled = true; //true disables the button
+  const carId = Number(removeBtn.getAttribute("data-carId")); // Get the car ID from the remove button's data attribute
+  wishlist.remove(carId); // Remove the car from the wishlist
+  updateDOMList(); // Update the list in the DOM
+  paraMake.textContent = ""; // Reset the make display
+  paraModel.textContent = ""; // Reset the model display
+  paraYear.textContent = ""; // Reset the year display
+  removeBtn.disabled = true; // Disable the remove button
 }
+// Event listener for form submission to add a car
+carForm.addEventListener("submit", addCar);
+
+// Event listener for remove button click to remove a car
+removeBtn.addEventListener("click", removeCar);
