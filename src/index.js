@@ -11,7 +11,7 @@ const paraMake = document.getElementById("car-make");
 const paraModel = document.getElementById("car-model");
 const paraYear = document.getElementById("car-year");
 const rmvButton = document.querySelector(".removeBtn");
-const ulList = document.querySelector("ul");
+const ulList = document.querySelector("#wishListContainer > ul");
 //use querySelector to get a single element
 
 const wishlist = new Wishlist();
