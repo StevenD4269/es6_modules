@@ -13,5 +13,8 @@ export default class Wishlist {
   remove(carId) {
     this.list = this.list.filter((car) => car.id !== carId);
     //targets this.list and filters out and id that matches carId
+    // filter does not change the array, creates a new array
+    // true = keep, false = remove thing
+    // could also use .splice to remove the item
   }
 }

@@ -1,7 +1,7 @@
 console.log("Hello World");
 
 // TODO
-import { Wishlist } from "./Wishlist";
+import Wishlist from "./Wishlist";
 const carForm = document.getElementById("submitForm");
 //creates a variable i can use to select that specific id
 const carMake = document.getElementById("makeInput");
@@ -10,7 +10,7 @@ const carYear = document.getElementById("yearInput");
 const paraMake = document.getElementById("car-make");
 const paraModel = document.getElementById("car-model");
 const paraYear = document.getElementById("car-year");
-const rmvButton = document.querySelector(".btn");
+const rmvButton = document.querySelector(".removeBtn");
 const ulList = document.querySelector("ul");
 //use querySelector to get a single element
 
