@@ -25,7 +25,7 @@ function showCarDetails(car) {
 
   removeBtn.disabled = false; //to disable a button you set it to true
   removeBtn.setAttribute("data-carId", car.id);
-  // "call" setAttributes: sets the value of an attribute on the specified element. If the attribute already exists, the value is updated; otherwise a new attribute is added with the specified name and value.
+  // "call" setAttributes: sets the value of an attribute on the specified element. If the attribute already exists, the value is updated; otherwise a new attribute is added with the specified name and value. So this sets this on the DOM button
 }
 
 function updateDOMList() {
