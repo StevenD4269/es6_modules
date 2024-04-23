@@ -1,6 +1,6 @@
 import { Car } from "./car";
 
-export class Wishlist {
+export default class Wishlist {
   constructor() {
     this.list = [];
     this.nextId = 0;
